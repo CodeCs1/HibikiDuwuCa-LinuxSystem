@@ -9,13 +9,14 @@ The Linux From Scratch System (for testing)
  
 * How to use:
   - for LIVE CD
-    run: installation.sh -folder <folder> -part <part_number>
-    if you want to wait for a long time, issue with: installation.sh -folder <folder> -all
+    run: installation.sh -folder <folder>
   
   - for drive installation
-    run: installation.sh -drive <device location> -part <part_number>
-      if you want to wait for a long time, issue with: installation.sh -drive <device location> -all
-  
+    run: installation.sh -drive <device location>
+    
+  - To start installation, run: installation.sh -part <part_number>
+    - If you want to watch it run, run: installation.sh -all
+    
 * Require
   - [OK] Linux System
   - [FAIL] Installation.sh script (not uploaded yet)
