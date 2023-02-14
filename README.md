@@ -16,6 +16,6 @@ The Linux From Scratch System (for testing)
     run: installation.sh -drive <device location> -part <part_number>
       if you want to wait for a long time, issue with: installation.sh -drive <device location> -all
   
- * Require
- [X] Linux System
- [ ] Installation.sh script (not uploaded yet)
+* Require
+ [OK] Linux System
+ [FAIL] Installation.sh script (not uploaded yet)
