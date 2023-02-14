@@ -1,7 +1,7 @@
 # HibikiDuwuCa LFS System
 # The first Linux From Scratch OS prepare to close when copyright
 The Linux From Scratch System (for testing)
-{I prepare to add installation file into this after 14 feb}
+{I will add installation file into this in next week}
 
 
 * Installation
