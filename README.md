@@ -17,5 +17,5 @@ The Linux From Scratch System (for testing)
       if you want to wait for a long time, issue with: installation.sh -drive <device location> -all
   
 * Require
- [OK] Linux System
- [FAIL] Installation.sh script (not uploaded yet)
+  - [OK] Linux System
+  - [FAIL] Installation.sh script (not uploaded yet)
