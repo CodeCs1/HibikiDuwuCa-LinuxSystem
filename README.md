@@ -5,14 +5,14 @@ The Linux From Scratch System (for testing)
 
 
 * Installation
- Download installation.sh file, simple.
+   - Download installation.sh file, simple.
  
 * How to use:
   - for LIVE CD
-    run: installation.sh -folder <folder>
+    run: installation.sh -folder <folder_location>
   
   - for drive installation
-    run: installation.sh -drive <device location>
+    run: installation.sh -drive <device_location>
     
   - To start installation, run: installation.sh -part <part_number>
     - If you want to watch it run, run: installation.sh -all
