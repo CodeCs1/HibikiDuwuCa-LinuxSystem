@@ -1,7 +1,7 @@
-# HibikiDuwuCa LFS System
-# The first Linux From Scratch OS prepare to close when copyright
-The Linux From Scratch System (for testing)
-{I will add installation file into this in next week}
+# HibikiDuwuCa LFS System [AKA: Vinux From Scratch (Linux From Scratch Vtuber Project)]
+# The first Linux From Scratch OS prepare to close when copyright (Vtube Rules)
+The Linux From Scratch System repos (for testing)
+{Added alpha version!}
 
 
 * Installation
