@@ -1,11 +1,8 @@
 # HibikiDuwuCa LFS System [AKA: Vinux From Scratch (Linux From Scratch Vtuber Project)]
-# The first Linux From Scratch OS prepare to close when copyright (Vtube Rules)
-The Linux From Scratch System repos (for testing)
-{Added alpha version!}
-
+The first Linux From Scratch OS prepare to close when copyright (Vtube Rules)
 
 * Installation
-   - Download installation.sh file, simple.
+   - Download this repos to zip or clone this repos, simple.
  
 * How to use:
   - for LIVE CD
@@ -15,8 +12,8 @@ The Linux From Scratch System repos (for testing)
     run: installation.sh -drive <device_location>
     
   - To start installation, run: installation.sh -part <part_number>
-    - If you want to watch it run, run: installation.sh -all
+  - If you want to watch it run, run: installation.sh -all
     
 * Require
   - [OK] Linux System
-  - [FAIL] Installation.sh script (not uploaded yet)
+  - [OK] Installation.sh script
