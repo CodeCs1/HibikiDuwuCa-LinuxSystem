@@ -23,7 +23,6 @@ if [ $1 == "-HELP" ] || [ $1 == "-help" ]; then
 	echo "                    WAITER ONLY        "
 	echo " -ALL: start all process (may take long time)"
 	echo "This Installation use: Hibiki Duwuca as default OS"
-	
 elif [ $1 == "-FOLDER" ] || [ $1 == "-folder" ]; then
 	if [ -x ".tmpdrv" ]; then
 		echo "Target drive found, removing..."
@@ -32,7 +31,6 @@ elif [ $1 == "-FOLDER" ] || [ $1 == "-folder" ]; then
 	fi
 	echo "Will use $2 as default folder..."
 	echo $2 > .tmpfol
-	
 elif [ $1 == "-DRIVE" ] || [ $1 == "-drive" ]; then
 	if [ -x ".tmpfol" ]; then
 		echo "Target folder found, removing..."
@@ -56,8 +54,7 @@ elif [ $1 == "-PART" ] || [ $1 == "-part" ]; then
 			echo "Running script..."
 			time sh ./part/part$2.sh $line
 		done < $filename
-	fi
-	
+	fi	
 elif [ $1 == "-ALL" ] || [ $1 == "-all" ]; then
 	if [ -x ".tmpfol" ]; then
 		filename='.tmpfol'
@@ -72,7 +69,6 @@ elif [ $1 == "-ALL" ] || [ $1 == "-all" ]; then
 			time sh ./part/part6.sh $line
 		done < $filename
 	fi
-	
 elif [ $1 == "-PREPARE" ] || [ $1 == "-prepare" ]; then
 	if [ -x ".tmpfol" ]; then
 		filename='.tmpfol'
@@ -91,7 +87,6 @@ elif [ $1 == "-PREPARE" ] || [ $1 == "-prepare" ]; then
 			fi
 		done < $filename
 	fi
-	
 elif [ $1 == "-CLEAN" ] || [ $1 == "-clean" ]; then
 	if [ -x ".tmpfol" ]; then
 		echo "Cleaning Initrd..."
