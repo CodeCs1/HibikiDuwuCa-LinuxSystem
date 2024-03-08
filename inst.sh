@@ -198,13 +198,13 @@ esac
 mkdir -pv $LFS/tools
 
 
-echo "Log into cuka user..."
-su - cuka
-
-
 #This will use in entire build process
+#Prepare for the LFS installation
 pushd $LFS/sources
-    tar xvf binutils-2.42.tar.xz
+#binutils
+    if [[ ! -d binutils-2.42 ]]; then
+        tar xvf binutils-2.42.tar.xz
+    fi
     cd binutils-2.42
     mkdir -v build
     cd       build
@@ -217,15 +217,65 @@ pushd $LFS/sources
              --disable-werror    \
              --enable-default-hash-style=gnu
             &&
-        make ${cpucore} &&
-        make install
-    ;}
+        make -j${cpucore} &&
+        make install ;}
     if [ $? -eq 1 ]; then
         echo "Installation of binutils failed!"
         exit -1
     fi
     cd ../..
     rm -rf binutils-2.42
+
+#gcc
+    if [[ ! -d gcc-13.2.0 ]]; then
+        tar xvf gcc-13.2.0.tar.xz
+    fi
+    cd gcc-13.2.0
+    tar -xf ../mpfr-4.2.1.tar.xz
+    mv -v mpfr-4.2.1 mpfr
+    tar -xf ../gmp-6.3.0.tar.xz
+    mv -v gmp-6.3.0 gmp
+    tar -xf ../mpc-1.3.1.tar.gz
+    mv -v mpc-1.3.1 mpc
+    case $(uname -m) in
+    x86_64)
+        sed -e '/m64=/s/lib64/lib/' \
+            -i.orig gcc/config/i386/t-linux64
+    ;;
+    esac
+    mkdir -v build
+    cd       build
+    if [[ ! -f .process ]]; then
+        touch .process
+        time { ../configure                  \
+        --target=$LFS_TGT         \
+        --prefix=$LFS/tools       \
+        --with-glibc-version=2.39 \
+        --with-sysroot=$LFS       \
+        --with-newlib             \
+        --without-headers         \
+        --enable-default-pie      \
+        --enable-default-ssp      \
+        --disable-nls             \
+        --disable-shared          \
+        --disable-multilib        \
+        --disable-threads         \
+        --disable-libatomic       \
+        --disable-libgomp         \
+        --disable-libquadmath     \
+        --disable-libssp          \
+        --disable-libvtv          \
+        --disable-libstdcxx       \
+        --enable-languages=c,c++ &&
+        make -j${cpucore} &&
+        make install ; }
+    else
+        time { make -j${cpucore} && make install ; }
+    fi
+    cd ..
+    cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+    `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
+
 popd
 
 echo "Done in installing core system !"
