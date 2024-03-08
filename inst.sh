@@ -147,10 +147,8 @@ for (( i=10; i>0; i-- )); do
     printf "..."
 done
 
-
-
-mkfs.ext4 ${drive_path}
-mkfs.fat -F 32 ${boot_path}
+/usr/bin/mkfs.ext4 ${drive_path}
+/usr/bin/mkfs.fat -F 32 ${boot_path}
 
 if [ ! -d "/mnt/lfs" ]; then
     echo "Creating /mnt/lfs..."
@@ -174,7 +172,7 @@ if [[ ${system_init} == "systemv" ]]; then
         md5sum -c md5sums
     popd
 
-elif [[ ${system_init} == "systemd" ]]
+elif [[ ${system_init} == "systemd" ]]; then
     wget https://www.linuxfromscratch.org/lfs/view/systemd/wget-list-systemd
     wget --input-file=wget-list-systemd --continue --directory-prefix=$LFS/sources
     pushd $LFS/sources
@@ -204,7 +202,7 @@ echo "Log into cuka user..."
 su - cuka
 
 
-#This will use in entire building process
+#This will use in entire build process
 pushd $LFS/sources
     tar xvf binutils-2.42.tar.xz
     cd binutils-2.42
