@@ -3,7 +3,7 @@ The first ever Linux From Scratch project based on Vtuber
 
 Uses Linux From Scratch Version: r12.1-119
 
-<h4>The main purpose of making this: Just for fun and I used to like to watch VTuber stream like other.</h4>
+<h4>The main purpose of making this: Just for fun and I used to watch VTuber stream like other.</h4>
 
 Update: 
 Upgrade all package version.<br>
