@@ -1,7 +1,0 @@
-https://www.linuxfromscratch.org/patches/lfs/development/bzip2-1.0.8-install_docs-1.patch 
-https://www.linuxfromscratch.org/patches/lfs/development/coreutils-9.1-i18n-1.patch 
-https://www.linuxfromscratch.org/patches/lfs/development/glibc-2.37-fhs-1.patch 
-https://www.linuxfromscratch.org/patches/lfs/development/kbd-2.5.1-backspace-1.patch 
-https://www.linuxfromscratch.org/patches/lfs/development/readline-8.2-upstream_fix-1.patch 
-https://www.linuxfromscratch.org/patches/lfs/development/sysvinit-3.06-consolidated-1.patch 
-

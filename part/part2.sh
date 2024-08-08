@@ -1,21 +1,20 @@
-#!/bin/bash
+#!/bin/sh
 
-export LFS=$1
-export LFS_TGT=x86_64-duca-linux-gnu
+source ./part/enviroment.sh
 
 echo "Extracting Binutils..."
 pushd "$1"
-if [ -d binutils-2.40 ]; then
+if [ -d binutils-2.43 ]; then
 	echo "Extracted, skip"
 else
-	tar xf ./sources/binutils-2.40.tar.xz
+	tar xvf ./sources/binutils-2.43.tar.xz
 fi
 if [ $? < 0 ];then
 	echo "Extracting fail."
 	exit
 else
 	echo "Configuring package..."
-	cd binutils-2.40
+	cd binutils-2.43
 	mkdir build
 	cd build
 	../configure --prefix=$LFS/tools \
@@ -36,7 +35,7 @@ else
         	echo "PART 2 COMPLETED !"
         	echo "Removing source folder..."
         	cd ../..
-        	rm -rf binutils-2.40
+        	rm -rf binutils-2.43
         fi
 fi
 

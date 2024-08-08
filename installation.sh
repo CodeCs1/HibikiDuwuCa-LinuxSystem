@@ -7,7 +7,7 @@
 export LFS=''
 
 if [ $1 == "-HELP" ] || [ $1 == "-help" ]; then
-	echo "The Installation script (version 14.2.2023)"
+	echo "The Installation script (version 8.8.2024-duca)"
 	echo "Usage: installation.sh <ARGS>"
 	echo ""
 	echo "ARGS:"
@@ -22,6 +22,8 @@ if [ $1 == "-HELP" ] || [ $1 == "-help" ]; then
 	echo ""
 	echo "                    WAITER ONLY        "
 	echo " -ALL: start all process (may take long time)"
+	echo "UPDATE:"
+	echo "There is also have BLFS based for xorg!"
 	echo "This Installation use: Hibiki Duwuca as default OS"
 elif [ $1 == "-FOLDER" ] || [ $1 == "-folder" ]; then
 	if [ -x ".tmpdrv" ]; then
@@ -40,14 +42,14 @@ elif [ $1 == "-DRIVE" ] || [ $1 == "-drive" ]; then
 	echo "Will use {$2} as default drive..."
 	echo $2 > .tmpdrv
 elif [ $1 == "-PART" ] || [ $1 == "-part" ]; then
-	if [ -x ".tmpfol" ]; then
+	if [ -f ".tmpfol" ]; then
 		filename='.tmpfol'
 		while read line; do
 			echo "Using $line as default initramfs folder"
 			echo "Running script..."
 			time sh ./part/part$2.sh $line
 		done < $filename
-	elif [ -x ".tmpdrv" ]; then
+	elif [ -f ".tmpdrv" ]; then
 		filename='.tmpdrv'
 		while read line; do
 			echo "Using $line as default installation drive"
@@ -70,7 +72,7 @@ elif [ $1 == "-ALL" ] || [ $1 == "-all" ]; then
 		done < $filename
 	fi
 elif [ $1 == "-PREPARE" ] || [ $1 == "-prepare" ]; then
-	if [ -x ".tmpfol" ]; then
+	if [ -f ".tmpfol" ]; then
 		filename='.tmpfol'
 		while read line; do
 			echo "Using $line as default preparation folder"
@@ -79,11 +81,10 @@ elif [ $1 == "-PREPARE" ] || [ $1 == "-prepare" ]; then
 				exit
 			else
 				echo "Downloading basic-linux sources..."
+				wget https://www.linuxfromscratch.org/lfs/view/development/wget-list-sysv
 				mkdir -v $line/sources
 				chmod -v a+wt $line/sources
-				wget --input-file=./part/preparation.txt --continue --directory-prefix=$line/sources
-				echo "Downloading basic-linux patches..."
-				wget --input-file=./part/preparation_patch.txt --continue --directory-prefix=$line/sources
+				wget --input-file=./wget-list-sysv --continue --directory-prefix=$line/sources
 			fi
 		done < $filename
 	fi
