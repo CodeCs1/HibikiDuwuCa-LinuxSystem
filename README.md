@@ -1,5 +1,5 @@
 # HibikiDuwuCa Linux System
-The first ever Linux From Scratch project based on Vtuber
+The first ever Linux From Scratch project inspired by a Vtuber (Hibiki DuCa)
 
 Uses Linux From Scratch Version: r12.1-119
 
